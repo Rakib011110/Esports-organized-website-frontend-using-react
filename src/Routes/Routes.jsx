@@ -31,7 +31,6 @@ import SingleTournamentDetails from "../Pages/Tournament/CustomTournaments/Singl
 import BookMarkItems from "../Pages/Dashboard/Members/BookMarkedItems/BookMarkItems";
 
 import MatchFixereManage from "../Pages/Dashboard/DashboardComponents/MatchFixereManage/MatchFixereManage";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,10 +52,9 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
-
       {
         path: "/register",
-        element: <Register></Register>,
+        element: <Register />,
       },
       {
         path: "/gallery",
@@ -64,7 +62,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allgame",
-        element: <AllGames></AllGames>,
+        element: <AllGames />,
       },
       {
         path: "/blogs",
@@ -84,15 +82,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/esports",
-        element: <Esports></Esports>,
+        element: <Esports />,
       },
       {
         path: "/espMatchFixered/:id",
         element: <MatchDetails />,
       },
       {
-        element: <Tournament />,
         path: "/tournament",
+        element: <Tournament />,
       },
       {
         path: "/addTournament",
@@ -137,11 +135,7 @@ const router = createBrowserRouter([
         element: <Test2 />,
       },
       {
-        path: "profileEdit",
-        element: <ProfileEdit />,
-      },
-      {
-        path: "profileEdit",
+        path: "editProfile",
         element: <ProfileEdit />,
       },
       {
@@ -149,18 +143,22 @@ const router = createBrowserRouter([
         element: <EnrolledTournaments />,
       },
       {
-        path: "CommentAndReviewManage",
+        path: "commentReviewManage",
         element: <CommentAndReviewManage />,
       },
       {
-        path: "bookMarkedItems",
+        path: "bookmarkItems",
         element: <BookMarkItems />,
       },
       {
-        path: "matchFixered",
-        element: <MatchFixereManage></MatchFixereManage>,
+        path: "matchFixerManage",
+        element: <MatchFixereManage />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Error />,
   },
 ]);
 
