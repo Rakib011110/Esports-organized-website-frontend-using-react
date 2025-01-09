@@ -11,6 +11,7 @@ import StayConnect from "./Components/StayConnect/StayConnect";
 import OurTeamMembers from "./Components/OurTeamMembers/OurTeamMembers";
 import Category from "./Components/Category/Category";
 import PrizePoolJoin from "./Components/PrizePoolJoin/PrizePoolJoin";
+import Newsletter from "../Newsletter/Newsletter";
 const Home = () => {
   return (
     <div className="bg-[url('https://themedox.com/demo/mykd/assets/img/bg/area_bg02.jpg')]">
@@ -32,7 +33,8 @@ const Home = () => {
         <LatestGallery />
         <BlogAndNews />
         <ReviewSection />
-        <OurTeamMembers />
+        {/* <OurTeamMembers /> */}
+        <Newsletter />
         <StayConnect />
       </div>
     </div>

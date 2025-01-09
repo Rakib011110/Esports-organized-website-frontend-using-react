@@ -5,118 +5,97 @@ import logo from "././../../../public/logoTest41.png";
 import "./NavigationBar.css";
 
 const NavigationBar = () => {
-	const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
-	const handleLogOut = () => {
-		logOut().then().catch();
-	};
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
 
-	const navOptions = (
-		<>
-			<li className="nav-link">
-				<NavLink
-					to="/"
-					className={({ isActive }) =>
-						isActive ? "active" : "default"
-					}
-				>
-					HOME
-				</NavLink>
-			</li>
-			<li className="nav-link">
-				<NavLink
-					to="/gallery"
-					className={({ isActive }) =>
-						isActive ? "active" : "default"
-					}
-				>
-					GALLERY
-				</NavLink>
-			</li>
-			<li className="nav-link">
-				<NavLink
-					to="/allgame"
-					className={({ isActive }) =>
-						isActive ? "active" : "default"
-					}
-				>
-					All GAMES
-				</NavLink>
-			</li>
-			<li className="nav-link">
-				<NavLink
-					to="/blogs"
-					className={({ isActive }) =>
-						isActive ? "active" : "default"
-					}
-				>
-					BLOGS
-				</NavLink>
-			</li>
-			<li className="nav-link">
-				<NavLink
-					to="/support"
-					className={({ isActive }) =>
-						isActive ? "active" : "default"
-					}
-				>
-					SUPPORT
-				</NavLink>
-			</li>
-			<li className="nav-link">
-				<NavLink
-					to="/tournament"
-					className={({ isActive }) =>
-						isActive ? "active" : "default"
-					}
-				>
-					TOURNAMENTS
-				</NavLink>
-			</li>
-			{user ? (
-				<>
-					<li className="nav-link">
-						<NavLink
-							to="/dashboard/profile"
-							className={({ isActive }) =>
-								isActive ? "active" : "default"
-							}
-						>
-							Dashboard
-						</NavLink>
-					</li>
-				</>
-			) : (
-				<></>
-			)}
-		</>
-	);
+  const navOptions = (
+    <>
+      <li className="nav-link">
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active" : "default")}>
+          HOME
+        </NavLink>
+      </li>
+      <li className="nav-link">
+        <NavLink
+          to="/gallery"
+          className={({ isActive }) => (isActive ? "active" : "default")}>
+          GALLERY
+        </NavLink>
+      </li>
+      <li className="nav-link">
+        <NavLink
+          to="/allgame"
+          className={({ isActive }) => (isActive ? "active" : "default")}>
+          All GAMES
+        </NavLink>
+      </li>
+      <li className="nav-link">
+        <NavLink
+          to="/blogs"
+          className={({ isActive }) => (isActive ? "active" : "default")}>
+          BLOGS
+        </NavLink>
+      </li>
+      <li className="nav-link">
+        <NavLink
+          to="/support"
+          className={({ isActive }) => (isActive ? "active" : "default")}>
+          SUPPORT
+        </NavLink>
+      </li>
+      <li className="nav-link">
+        <NavLink
+          to="/tournament"
+          className={({ isActive }) => (isActive ? "active" : "default")}>
+          TOURNAMENTS
+        </NavLink>
+      </li>
+      {user ? (
+        <>
+          <li className="nav-link">
+            <NavLink
+              to="/dashboard/profile"
+              className={({ isActive }) => (isActive ? "active" : "default")}>
+              Dashboard
+            </NavLink>
+          </li>
+        </>
+      ) : (
+        <></>
+      )}
+    </>
+  );
 
-	const navOptionsForMobile = (
-		<>
-			<li className="nav-link">
-				<NavLink to="/">HOME</NavLink>
-			</li>
-			<li className="nav-link">
-				<NavLink to="/gallery">GALLERY</NavLink>
-			</li>
-			<li className="nav-link">
-				<NavLink to="/allgame">All GAMES</NavLink>
-			</li>
-			<li className="nav-link">
-				<NavLink to="/blogs">BLOGS</NavLink>
-			</li>
-			<li className="nav-link">
-				<NavLink to="/support">SUPPORT</NavLink>
-			</li>
-			<li className="nav-link">
+  const navOptionsForMobile = (
+    <>
+      <li className="nav-link">
+        <NavLink to="/">HOME</NavLink>
+      </li>
+      <li className="nav-link">
+        <NavLink to="/gallery">GALLERY</NavLink>
+      </li>
+      <li className="nav-link">
+        <NavLink to="/allgame">All GAMES</NavLink>
+      </li>
+      <li className="nav-link">
+        <NavLink to="/blogs">BLOGS</NavLink>
+      </li>
+      <li className="nav-link">
+        <NavLink to="/support">SUPPORT</NavLink>
+      </li>
+      <li className="nav-link">
         <NavLink to="/tournament">Tournaments</NavLink>
       </li>
-			<li className="nav-link">
-				<NavLink to="/dashboard/profile">Dashboard</NavLink>
-			</li>
-		</>
-	);
+      <li className="nav-link">
+        <NavLink to="/dashboard/profile">Dashboard</NavLink>
+      </li>
+    </>
+  );
 
   return (
     <nav>
@@ -129,8 +108,7 @@ const NavigationBar = () => {
                 className="h-5 w-5 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -141,12 +119,11 @@ const NavigationBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-800 rounded-box w-52 z-10 text-white font-semibold"
-            >
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-800 rounded-box w-52 z-10 text-white font-semibold">
               {navOptionsForMobile}
             </ul>
           </div>
-          <Link to="/" className="normal-case text-xl flex items-center">
+          <Link to="/" className="normal-case text-lg w-80 flex items-center">
             <img className="" src={logo} alt="" />
           </Link>
         </div>
@@ -170,8 +147,7 @@ const NavigationBar = () => {
                     </div>
                     <button
                       className="custom-button hover:bg-green-500 py-2 px-4"
-                      onClick={handleLogOut}
-                    >
+                      onClick={handleLogOut}>
                       Logout
                     </button>
                   </div>
