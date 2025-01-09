@@ -5,9 +5,11 @@ import Swal from "sweetalert2";
 import Title from "../../../../Components/Shared/AnimatedTitle/Titile";
 
 const AddBlog = () => {
+  // State for managing selected options for category and tags
   const [categoryOption, setCategoryOption] = useState(null);
   const [tagOption, setTagOption] = useState(null);
 
+  // React Hook Form for managing form state and validation
   const {
     register,
     handleSubmit,
@@ -16,6 +18,7 @@ const AddBlog = () => {
     formState: { errors },
   } = useForm();
 
+  // Predefined category and tag options
   const categoryOptions = [
     { value: "Gaming", label: "Gaming" },
     { value: "Reviews", label: "Reviews" },
@@ -37,9 +40,13 @@ const AddBlog = () => {
     { value: "aim training", label: "aim training" },
     { value: "map knowledge", label: "map knowledge" },
   ];
+
+  // Function to handle form submission
   const handleAddBlog = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Prevent page reload on form submit
     const form = event.target;
+
+    // Extracting form values
     const title = form.title.value;
     const author = form.author.value;
     const date = form.date.value;
@@ -49,6 +56,7 @@ const AddBlog = () => {
     const twitter = form.twitter.value;
     const linkedin = form.linkedin.value;
 
+    // Constructing the new blog object
     const newBlog = {
       title,
       author,
@@ -61,6 +69,7 @@ const AddBlog = () => {
     };
     console.log(newBlog);
 
+    // Sending blog data to the server
     fetch("https://titans-arena-server.vercel.app/blogs", {
       method: "POST",
       headers: {
@@ -72,28 +81,31 @@ const AddBlog = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
+          // Display success notification using SweetAlert2
           Swal.fire({
             title: "Success!",
-            text: "Toy added successfully",
+            text: "Blog added successfully",
             icon: "success",
             color: "#FFFFFF",
             background:
-            " linear-gradient(90deg, #0c0e12 0%, rgba(31, 41, 53, 0.66078) 100%)",
-
+              " linear-gradient(90deg, #0c0e12 0%, rgba(31, 41, 53, 0.66078) 100%)",
             confirmButtonColor: "cool",
             confirmButtonText: "Cool",
           });
-          form.reset();
+          form.reset(); // Resetting the form after successful submission
         }
       });
   };
 
   return (
     <div className="pt-6 w-full shadow-xl px-5 ">
+      {/* Title component for page header */}
       <Title primaryText="Add Your Own" secondaryText="Blogs" />
 
+      {/* Blog submission form */}
       <form onSubmit={handleAddBlog}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {/* Title input */}
           <div className="mb-4">
             <label className="block text-white font-medium mb-1">Name</label>
             <input
@@ -104,6 +116,8 @@ const AddBlog = () => {
               {...register("title")}
             />
           </div>
+
+          {/* Author input */}
           <div className="mb-4">
             <label className="block text-white font-medium mb-1">
               Author Name
@@ -116,6 +130,8 @@ const AddBlog = () => {
               {...register("author")}
             />
           </div>
+
+          {/* Date input */}
           <div className="mb-4">
             <label className="block text-white font-medium mb-1">Date</label>
             <input
@@ -125,6 +141,8 @@ const AddBlog = () => {
               {...register("date")}
             />
           </div>
+
+          {/* Featured Image URL input */}
           <div className="mb-4">
             <label className="block text-white font-medium mb-1">
               photo url
@@ -136,6 +154,8 @@ const AddBlog = () => {
               {...register("featured_image")}
             />
           </div>
+
+          {/* Category dropdown */}
           <div className="mb-4">
             <label className="block text-white font-medium mb-1">
               Category
@@ -149,6 +169,8 @@ const AddBlog = () => {
               isMulti
             />
           </div>
+
+          {/* Tags dropdown */}
           <div className="mb-4">
             <label className="block text-white font-medium mb-1">Tags</label>
             <CreatableSelect
@@ -160,7 +182,9 @@ const AddBlog = () => {
             />
           </div>
         </div>
+
         <div className="flex flex-col lg:flex-row justify-between gap-2">
+          {/* Facebook input */}
           <div className="mb-4">
             <label className="block text-white font-medium mb-1">
               Facebook
@@ -173,6 +197,8 @@ const AddBlog = () => {
               {...register("facebook")}
             />
           </div>
+
+          {/* Twitter input */}
           <div className="mb-4">
             <label className="block text-white font-medium mb-1">Twitter</label>
             <input
@@ -183,19 +209,23 @@ const AddBlog = () => {
               {...register("twitter")}
             />
           </div>
+
+          {/* LinkedIn input */}
           <div className="mb-4">
             <label className="block text-white font-medium mb-1">
-              Linked In
+              LinkedIn
             </label>
             <input
               type="text"
               className="border-b bg-transparent text-white w-full py-2 px-3 font-semibold"
               name="linkedin"
-              placeholder="Linked In"
+              placeholder="LinkedIn"
               {...register("linkedin")}
             />
           </div>
         </div>
+
+        {/* Blog content textarea */}
         <div className="form-control">
           <label className="label">
             <span className="label-text text-[#ffff] text-base font-semibold">
@@ -210,6 +240,8 @@ const AddBlog = () => {
             {...register("content")}
           />
         </div>
+
+        {/* Submit button */}
         <div className="form-control pb-5 mt-6">
           <input
             className="border-2 rounded-tl-box rounded-br-box p-3 w-full font-bold hover:bg-green-500 my-4 border-green-500 text-white"
