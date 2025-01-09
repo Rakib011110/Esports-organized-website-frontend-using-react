@@ -16,7 +16,6 @@ import Users from "../Pages/Dashboard/Admin/Users/Users";
 import AddToCart from "../Pages/Dashboard/Members/AddToCart/AddToCart";
 import Profile from "../Pages/Dashboard/DashboardComponents/Profile";
 import BlogManagement from "../Pages/Dashboard/Admin/BlogsManagement/BlogManagement";
-import AddBlog from "../Pages/Dashboard/Admin/addBlog/AddBlog";
 import Error from "../Components/Error/Error";
 import Tournament from "../Pages/Tournament/Tournament";
 import Gallery from "../Pages/Gallery/Gallery";
@@ -31,6 +30,7 @@ import SingleTournamentDetails from "../Pages/Tournament/CustomTournaments/Singl
 import BookMarkItems from "../Pages/Dashboard/Members/BookMarkedItems/BookMarkItems";
 
 import MatchFixereManage from "../Pages/Dashboard/DashboardComponents/MatchFixereManage/MatchFixereManage";
+import AddBlog from "../Pages/Dashboard/Admin/AddBlog/AddBlog";
 const router = createBrowserRouter([
   {
     path: "/",
